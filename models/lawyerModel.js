@@ -14,9 +14,8 @@ const lawyerSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    imageUrl: {
+    profile: {
       type: String,
-      // required: true,
     },
     phoneNumber: {
       type: String,

@@ -18,6 +18,9 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    profile: {
+      type: String,
+    },
     isLawyer: {
       type: Boolean,
       default: false,
@@ -39,6 +42,9 @@ const userSchema = new mongoose.Schema(
         createdAt: {
           type: Date,
           default: Date.now,
+        },
+        profile: {
+          type: String,
         },
         onClickPath: {
           type: String,

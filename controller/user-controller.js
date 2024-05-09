@@ -33,12 +33,14 @@ const applyLawyer = async (req, res) => {
     // newLawyer.imageUrl = uploadResponse.url;
     await newLawyer.save();
     const adminUser = await User.findOne({ isAdmin: true });
-
+    const user = await User.findOne({ _id: newLawyer?.userId });
+    console.log(user);
     const unseenNotifications = adminUser.unseenNotifications;
     unseenNotifications.push({
       type: "new-lawyer-request",
       message: `${newLawyer.firstName} ${newLawyer.lastName} یرای تغییر اکانت به وکالت درخواست داده است!`,
       createdAt: new Date(),
+      profile: user?.profile,
       data: {
         lawyerId: newLawyer._id,
         name: newLawyer.firstName + " " + newLawyer.lastName,
